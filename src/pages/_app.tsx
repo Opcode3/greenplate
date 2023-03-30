@@ -17,11 +17,11 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="author" content="Joseph Emmanuel emeka" />
         <meta name="robots" content="index, follow" />
         <meta name="googlebot" content="index, follow" />
-        {/* <link
+        <link
           rel="shortcut icon"
-          href="/images/prazzle_black_logo.svg"
+          href="/images/logo.svg"
           type="image/x-icon"
-        /> */}
+        />
     </Head>
     <Component {...pageProps} />
   </>)
