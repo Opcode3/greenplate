@@ -1,5 +1,4 @@
-import AdminLayout from '@/layout/adminLayout'
-import AccountLayout from '@/layout/adminLayout'
+
 import React from 'react'
 
 const AccountPage = () => {

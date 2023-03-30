@@ -33,7 +33,7 @@ const Header = ({title}: HeaderProps) => {
       </Link>
       <div className="hidden sm:flex w-full justify-end">
         {
-          navLinks.map((linq, index) => <Link href={linq.url} 
+          navLinks.map((linq, index) => <Link key={index} href={linq.url} 
             className={`px-4 rounded py-2 font-medium ${index == 2 ? 'bg-white text-black ml-2' : 'text-white'}`}>{linq.name}</Link>)
         }
       </div>
