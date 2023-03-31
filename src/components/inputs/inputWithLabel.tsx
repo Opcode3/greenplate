@@ -12,10 +12,10 @@ type InputProps = {
 const InputWithLabel = ({placeholder, value, label, type}: InputProps): JSX.Element => {
   return (
     <div className='flex flex-col'>
-        <label htmlFor={placeholder} className='text-prazzle-black font-semibold text-base mb-2 lg:text-xl'>{label}</label>
+        <label htmlFor={label} className='text-r-black font-semibold text-base mb-2 lg:text-xl'>{label}</label>
         <input 
-            className='border border-prazzle-gray focus:border-r-black bg-transparent focus:bg-white font-light text-base rounded py-3 px-4 outline-none transition-all'
-            placeholder={placeholder} value={value} id={placeholder} type={type} />
+            className='border border-gray-400 focus:border-r-black bg-transparent focus:bg-white font-light text-base rounded py-3 px-4 outline-none transition-all'
+            placeholder={placeholder} value={value} id={label} type={type} />
     </div>
   )
 }
