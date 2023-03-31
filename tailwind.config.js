@@ -12,10 +12,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'prazzle-yellow': '#F5BD20',
-        'prazzle-gray': '#797575',
-        'prazzle-gray-0': '#EEEEEE',
-        'prazzle-black': '#121212',
+        'r-black': '#2D333F',
       },
       backgroundImage: {
         'footer-pattern': "url('/images/footer_overlay.png')",

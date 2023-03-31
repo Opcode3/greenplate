@@ -16,26 +16,32 @@ const Header = ({title}: HeaderProps) => {
   const [mobileMenu, setMobileMenu] = React.useState<boolean>(false)
   
   const navLinks: {url: string, name: string}[] = [
-    {url: '/explore', name: 'Explore'},
-    {url: '/partner/signin', name: 'Sign in'},
-    {url: '/partner/signup', name: 'Sign up'},
+    {url: '/partner/signin', name: 'For Businesses'},
+    {url: '/about-greenplate', name: 'About GreenPlate'},
+    {url: '/faqs', name: 'FAQs'}
   ]
   
   return (
     
     <>
 
-    <header className=' bg-black flex flex-col sm:grid sm:grid-cols-[250px_auto] px-[3%] sm:px-[8%] py-4'>
+    <div className=" bg-gray-200 flex justify-end items-center h-8 px-[3%] sm:px-[8%] gap-3">
+      {
+        navLinks.map((link, index) => <Link key={index} href={link.url} className='px-2 py-2 text-sm font-medium'>{link.name}</Link>)
+      }
+      
+    </div>
+
+    <header className=' bg-r-black shadow-inner flex flex-col sm:grid sm:grid-cols-[250px_auto] px-[3%] sm:px-[8%] py-2'>
       <Link href={'/'} className="flex items-center">
         <div className="grid mr-1"> <Image src={logo} alt=''/> </div>
         <span className='text-2xl font-extrabold text-gray-100'>Green</span>
         <span className='text-2xl font-extrabold text-green-400'>Plate</span>
       </Link>
       <div className="hidden sm:flex w-full justify-end">
-        {
-          navLinks.map((linq, index) => <Link key={index} href={linq.url} 
-            className={`px-4 rounded py-2 font-medium ${index == 2 ? 'bg-white text-black ml-2' : 'text-white'}`}>{linq.name}</Link>)
-        }
+        <span className={`px-3 rounded py-1 text-sm text-white`}>Sign in</span>
+        <span className={`px-3 rounded py-1 text-sm font-medium bg-white text-r-black ml-2`}>Sign up</span>
+        
       </div>
     </header>
   

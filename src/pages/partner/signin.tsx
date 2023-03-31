@@ -10,7 +10,7 @@ const PartnerSigninPage = () => {
   return (
     <div className=' flex h-screen flex-col mt-0 justify-start w-full'>
         <Header />
-        <div className=" w-full mt-[10vh] md:mt-[20vh]">
+        <div className=" w-full mt-[10vh] md:mt-[15vh]">
             <div className="mb-8 justify-center flex items-center">
                 <div className="grid mr-1 w-16 relative h-16 "> <Image src={logo} style={{ objectFit: 'contain', objectPosition: '50% 50%'}} fill alt=''/> </div>
                 <span className='text-4xl font-extrabold text-gray-600'>Green</span>
