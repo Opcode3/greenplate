@@ -1,14 +1,15 @@
 
+import AdminLayout from '@/layout/adminLayout'
 import React from 'react'
 
-const AccountPage = () => {
+const DashboardPage = () => {
   return (
-    // <AdminLayout activePage={0}>
+    <AdminLayout activePage={0}>
         <div>
           <h1>Welcome to Admin Dashboard Page</h1>
         </div>
-    // </AdminLayout>
+    </AdminLayout>
   )
 }
 
-export default AccountPage
+export default DashboardPage

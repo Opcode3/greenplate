@@ -38,6 +38,11 @@ const Header = ({title}: HeaderProps) => {
         <span className='text-2xl font-extrabold text-gray-100'>Green</span>
         <span className='text-2xl font-extrabold text-green-400'>Plate</span>
       </Link>
+      <div className=" hidden w-24 bg-red-500">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+          </svg>
+      </div>
       <div className="hidden sm:flex w-full justify-end">
         <span className={`px-3 rounded py-1 text-sm text-white`}>Sign in</span>
         <span className={`px-3 rounded py-1 text-sm font-medium bg-white text-r-black ml-2`}>Sign up</span>

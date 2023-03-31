@@ -1,3 +1,4 @@
+import PartnerLayout from '@/layout/partnerLayout'
 import React from 'react'
 
 const RegisterPage = (): JSX.Element => {
@@ -10,7 +11,9 @@ const RegisterPage = (): JSX.Element => {
     console.log('Working well!')
   }
   return (
-    <div className="">User account!</div>
+    <PartnerLayout>
+      <div className="">User account!</div>
+    </PartnerLayout>
   )
 }
 
