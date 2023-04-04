@@ -43,7 +43,7 @@ const PartnerSignupPage = () => {
                       <p>By checking this box, you are agreeing to the <Link href={''} className='font-medium text-green-600 underline'>terms and condition</Link> of this platform.</p>
                     </label>
                 </div>
-                <Button value='Submit' classname='text-2xl mt-7' onClick={e => {}} />
+                <Button value='Create business account' classname='text-2xl mt-7' onClick={e => {}} />
                 <Link href={'/partner/signin'} className='font-medium text-xl mt-4 mb-10 text-green-600 block text-center'>Already have a partner account?</Link>
 
             </div>

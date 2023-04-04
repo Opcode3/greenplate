@@ -12,7 +12,7 @@ const ModalLayout = ({children} : ModalLayoutProps) => {
   return (
     <div className='w-full h-screen fixed bg-r-black top-0 z-10 bg-opacity-50 overflow-auto'>
 
-        <div className="flex flex-col items-center pt-[15vh]">
+        <div className="flex flex-col items-center pt-[8vh]">
             {children}
             <div className=" my-3 p-3 cursor-pointer" onClick={ e => dispatch({type: REDUCER_ACTION.MODAL_VISIBILITY_TOGGLE, payload: MODAL_COMPONENT.EMPTY})}> 
               <TimesIcon className='hover:w-16 w-12 transition-all' /> 
