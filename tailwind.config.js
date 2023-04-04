@@ -15,7 +15,7 @@ module.exports = {
         'r-black': '#2D333F',
       },
       backgroundImage: {
-        'footer-pattern': "url('/images/footer_overlay.png')",
+        'search-pattern': "url('/images/bgs.png')",
         'sign': "url('/images/bg_sign.jpg')",
       }
     },
@@ -23,6 +23,17 @@ module.exports = {
       'lato': ['Lato', 'sans-serif'],
       'play-fair': ['"Playfair Display"', 'serif'] 
     }
+  },
+  images: {
+      domains: ["localhost:3000"],
+      remotePatterns: [
+        {
+          protocol: 'http',
+          hostname: 'localhost',
+          port: '3000',
+          // pathname: '/account123/**',
+        },
+      ],
   },
   plugins: [],
 }

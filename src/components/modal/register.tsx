@@ -17,7 +17,6 @@ const RegisterModal = () => {
                 <InputWithLabel label='Email' type='email' onChange={e=> {}} />
                 <InputWithLabel label='Home address' onChange={e=> {}} />
                 <InputWithLabel label='Password' type='password' onChange={e=> {}} />
-                
                 <Button value='Create account' classname='text-2xl mt-2' onClick={e => {}} />
                 <span className='font-medium text-xl mt-2 text-r-black block text-center'>Already have an account? <b onClick={ e => dispatch({type: REDUCER_ACTION.MODAL_SWITCH_COMPONENT, payload: MODAL_COMPONENT.LOGIN})} className='text-green-600 cursor-pointer'>Log in.</b></span>
             </div>

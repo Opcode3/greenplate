@@ -4,23 +4,27 @@ import LoginModal from '@/components/modal/login'
 import RegisterModal from '@/components/modal/register'
 import { UseStore } from '@/hooks/context'
 import { MODAL_COMPONENT } from '@/hooks/states'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 type LayoutProps = {
     children: React.ReactNode,
-    title?: string
+    title?: string,
+    page?: string,
 }
 
-const Layout = ({children, title}: LayoutProps) => {
+const Layout = ({children, title, page}: LayoutProps) => {
 
   const {state, dispatch} = UseStore();
+  
   return (
     // <StoreProvider>
         <>
-          <Header title={title} />
-          <main className=' min-h-[82vh] w-full'>
+          <Header title={title} page={page != undefined ? page : ''} />
+          <main className=' min-h-[82vh] w-full hidden lg:block'>
             {children}
           </main>
+          <div className="flex items-center justify-center w-full h-screen col-span-2 lg:hidden text-r-black text-center px-4">This application has no mobile view interface. <br /> Please use a device of some screen width greater than 1023 pixels. </div>
+
           <Footer />
 
           {
@@ -32,5 +36,5 @@ const Layout = ({children, title}: LayoutProps) => {
         </>
   )
 }
-Layout.defaultProps = { title: "Green Plate, Inc."}
+Layout.defaultProps = { title: "Green Plate, Inc.", page: ''}
 export default Layout;

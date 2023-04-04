@@ -2,9 +2,9 @@ import React from 'react'
 export default function Footer(): JSX.Element{
 
   return (
-    <div className='bg-r-black text-white flex items-center justify-between px-[8%] py-4'>
-      <span>GreenPlate@2023</span>
-      <span>Restaurant Reservation System</span>
+    <div className='bg-r-black text-white hidden lg:flex items-center justify-between px-[8%] py-4'>
+      <span>CopyRight &copy; 2023 - GreenPlate, Inc. Niger State, Nigeria</span>
+      <span title='Restaurant Reservation System'>RRS</span>
     </div>
   )
 }
