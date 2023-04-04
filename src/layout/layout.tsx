@@ -2,6 +2,8 @@ import Footer from '@/components/baselayout/footer'
 import Header from '@/components/baselayout/header'
 import LoginModal from '@/components/modal/login'
 import RegisterModal from '@/components/modal/register'
+import { UseStore } from '@/hooks/context'
+import { MODAL_COMPONENT } from '@/hooks/states'
 import React from 'react'
 
 type LayoutProps = {
@@ -10,6 +12,8 @@ type LayoutProps = {
 }
 
 const Layout = ({children, title}: LayoutProps) => {
+
+  const {state, dispatch} = UseStore();
   return (
     // <StoreProvider>
         <>
@@ -19,8 +23,12 @@ const Layout = ({children, title}: LayoutProps) => {
           </main>
           <Footer />
 
-          <LoginModal />
-          {/* <RegisterModal /> */}
+          {
+
+            state.modal_visibility && state.modal_type !== MODAL_COMPONENT.EMPTY ? <>
+              { state.modal_type === MODAL_COMPONENT.LOGIN ? <LoginModal /> : <RegisterModal /> } </> : ''
+          }
+          
         </>
   )
 }

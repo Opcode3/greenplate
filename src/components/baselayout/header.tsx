@@ -3,6 +3,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import logo from "/public/images/logo.svg"
+import { UseStore } from '@/hooks/context'
+import { REDUCER_ACTION } from '@/hooks/actions'
+import { MODAL_COMPONENT } from '@/hooks/states'
 
 
 type HeaderProps = {
@@ -20,6 +23,8 @@ const Header = ({title}: HeaderProps) => {
     {url: '/about-greenplate', name: 'About GreenPlate'},
     {url: '/faqs', name: 'FAQs'}
   ]
+
+  const {state, dispatch} = UseStore();
   
   return (
     
@@ -44,8 +49,12 @@ const Header = ({title}: HeaderProps) => {
           </svg>
       </div>
       <div className="hidden sm:flex w-full justify-end">
-        <span className={`px-4 rounded py-2 text-sm text-white cursor-pointer`}>Sign in</span>
-        <span className={`px-4 rounded py-2 text-sm font-medium bg-white cursor-pointer text-r-black ml-2 border-4 border-gray-200`}>Sign up</span>
+        <span className={`px-4 rounded py-2 text-sm text-white cursor-pointer`}
+          onClick={ e => dispatch({type: REDUCER_ACTION.MODAL_VISIBILITY_TOGGLE, payload: MODAL_COMPONENT.LOGIN})}
+          >Sign in</span>
+        <span className={`px-4 rounded py-2 text-sm font-medium bg-white cursor-pointer text-r-black ml-2 border-4 border-gray-200`}
+          onClick={ e => dispatch({type: REDUCER_ACTION.MODAL_VISIBILITY_TOGGLE, payload: MODAL_COMPONENT.REGISTER})}
+        >Sign up</span>
       </div>
     </header>
   
