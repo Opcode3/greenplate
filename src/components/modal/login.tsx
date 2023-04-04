@@ -14,7 +14,6 @@ const LoginModal = () => {
                 
                 <Button value='Login' classname='text-2xl mt-2' onClick={e => {}} />
                 <Link href={''} className='font-medium text-xl mt-2 text-r-black block text-center'>Don&apos;t have an account? <b className='text-green-600 '>Register now.</b></Link>
-
             </div>
         </div>
     </ModalLayout>

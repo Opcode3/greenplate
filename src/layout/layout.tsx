@@ -11,16 +11,17 @@ type LayoutProps = {
 
 const Layout = ({children, title}: LayoutProps) => {
   return (
-    <>
-        <Header title={title} />
-        <main className=' min-h-[82vh] w-full'>
-          {children}
-        </main>
-        <Footer />
+    // <StoreProvider>
+        <>
+          <Header title={title} />
+          <main className=' min-h-[82vh] w-full'>
+            {children}
+          </main>
+          <Footer />
 
-        {/* <LoginModal /> */}
-        {/* <RegisterModal /> */}
-    </>
+          <LoginModal />
+          {/* <RegisterModal /> */}
+        </>
   )
 }
 Layout.defaultProps = { title: "Green Plate, Inc."}

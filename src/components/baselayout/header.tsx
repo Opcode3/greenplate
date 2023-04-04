@@ -44,9 +44,8 @@ const Header = ({title}: HeaderProps) => {
           </svg>
       </div>
       <div className="hidden sm:flex w-full justify-end">
-        <span className={`px-3 rounded py-1 text-sm text-white`}>Sign in</span>
-        <span className={`px-3 rounded py-1 text-sm font-medium bg-white text-r-black ml-2`}>Sign up</span>
-        
+        <span className={`px-4 rounded py-2 text-sm text-white cursor-pointer`}>Sign in</span>
+        <span className={`px-4 rounded py-2 text-sm font-medium bg-white cursor-pointer text-r-black ml-2 border-4 border-gray-200`}>Sign up</span>
       </div>
     </header>
   

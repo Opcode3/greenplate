@@ -1,0 +1,7 @@
+export type REDUCER_ACTION_TYPE = {
+    type: REDUCER_ACTION
+}
+
+export enum REDUCER_ACTION{
+    MODAL_VISIBILITY_TOGGLE,
+}
