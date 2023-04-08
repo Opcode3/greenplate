@@ -1,20 +1,11 @@
 import Table from '@/components/admins/table'
 import Button from '@/components/buttons/button'
-import PartnerPageHeader from '@/components/partner/header'
-import Statistic from '@/components/partner/statistic'
-import PartnerLayout from '@/layout/partnerLayout'
 import Link from 'next/link'
+import PartnerPageHeader from '@/components/partner/header'
+import PartnerLayout from '@/layout/partnerLayout'
 import React from 'react'
 
-const RegisterPage = (): JSX.Element => {
-
-  const statisticsData = [
-    {name: 'Total Reservation', value: 2},
-    {name: 'Available Meals', value: 2649},
-    {name: 'Available Table', value: 92},
-    {name: 'Complaints', value: 0},
-  ];
-
+const PartnerTablePage = (): JSX.Element => {
 
   const partnerHead = ['Sn', 'Meal', 'Order Id', 'Order Email', 'Cost', 'Paid', 'Date Created']
   const partnerBody = [
@@ -34,13 +25,12 @@ const RegisterPage = (): JSX.Element => {
 })
 
   return (
-    <PartnerLayout activePage={0} title=''>
+    <PartnerLayout activePage={1}>
       <div className="">
-        <PartnerPageHeader title='Partner Dashboard' />
+        <PartnerPageHeader title='Manage Tables' />
         <div className="">
-          <Statistic data={statisticsData}/>
+          <Link href={''}><Button onClick={e=> {}} value='Add New Table' classname='max-w-fit px-6 rounded-full' /></Link>
           <div className='mt-8 flex flex-col gap-2'>
-            <h3 className='text-2xl font-semibold text-r-black'>Newest Orders</h3>
             <Table head={partnerHead} body={formattedBody} columnClass='grid-cols-[50px_auto_120px_220px_70px_70px_130px]' />
           </div>
         </div>
@@ -49,4 +39,4 @@ const RegisterPage = (): JSX.Element => {
   )
 }
 
-export default RegisterPage
+export default PartnerTablePage

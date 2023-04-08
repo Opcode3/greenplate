@@ -1,23 +1,19 @@
 import Table from '@/components/admins/table'
-import Button from '@/components/buttons/button'
 import PartnerPageHeader from '@/components/partner/header'
-import Statistic from '@/components/partner/statistic'
 import PartnerLayout from '@/layout/partnerLayout'
-import Link from 'next/link'
 import React from 'react'
+import Button from '@/components/buttons/button'
+import Link from 'next/link'
 
-const RegisterPage = (): JSX.Element => {
-
-  const statisticsData = [
-    {name: 'Total Reservation', value: 2},
-    {name: 'Available Meals', value: 2649},
-    {name: 'Available Table', value: 92},
-    {name: 'Complaints', value: 0},
-  ];
-
+const PartnerMealPage = (): JSX.Element => {
 
   const partnerHead = ['Sn', 'Meal', 'Order Id', 'Order Email', 'Cost', 'Paid', 'Date Created']
   const partnerBody = [
+    {name: 'Fried Chicken and Chips', orderId: '636D52', email:'opcode3@gmail.com', price:4300, paid: 4000, createdAt:'10/10/2010'},
+    {name: 'Fried Chicken and Chips', orderId: '636D52', email:'opcode3@gmail.com', price:4300, paid: 4000, createdAt:'10/10/2010'},
+    {name: 'Fried Chicken and Chips', orderId: '636D52', email:'opcode3@gmail.com', price:4300, paid: 4000, createdAt:'10/10/2010'},
+    {name: 'Fried Chicken and Chips', orderId: '636D52', email:'opcode3@gmail.com', price:4300, paid: 4000, createdAt:'10/10/2010'},
+    {name: 'Fried Chicken and Chips', orderId: '636D52', email:'opcode3@gmail.com', price:4300, paid: 4000, createdAt:'10/10/2010'},
     {name: 'Fried Chicken and Chips', orderId: '636D52', email:'opcode3@gmail.com', price:4300, paid: 4000, createdAt:'10/10/2010'},
   ]
 
@@ -34,13 +30,12 @@ const RegisterPage = (): JSX.Element => {
 })
 
   return (
-    <PartnerLayout activePage={0} title=''>
+    <PartnerLayout activePage={2} title=''>
       <div className="">
-        <PartnerPageHeader title='Partner Dashboard' />
+        <PartnerPageHeader title='Manage meals' />
         <div className="">
-          <Statistic data={statisticsData}/>
           <div className='mt-8 flex flex-col gap-2'>
-            <h3 className='text-2xl font-semibold text-r-black'>Newest Orders</h3>
+            <Link href={''}><Button onClick={e=> {}} value='Add New Meal' classname='max-w-fit px-6 rounded-full' /></Link>
             <Table head={partnerHead} body={formattedBody} columnClass='grid-cols-[50px_auto_120px_220px_70px_70px_130px]' />
           </div>
         </div>
@@ -49,4 +44,4 @@ const RegisterPage = (): JSX.Element => {
   )
 }
 
-export default RegisterPage
+export default PartnerMealPage
