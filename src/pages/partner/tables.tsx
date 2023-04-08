@@ -13,7 +13,7 @@ const PartnerTablePage = (): JSX.Element => {
   ]
 
   const formattedBody = partnerBody.map((td,id) => {
-    return (<div key={id} className={`grid grid-cols-[50px_auto_120px_220px_70px_70px_130px] border-t  border-gray-100 hover:bg-gray-100 gap-2 px-2 py-3 transition-all rounded`}>
+    return (<div key={id} className={`grid grid-cols-[50px_minmax(140px,auto)_120px_220px_70px_70px_130px] border-t  border-gray-100 hover:bg-gray-100 gap-2 px-2 py-3 transition-all rounded`}>
         <span className='text-base capitalize text-gray-800 block text-ellipsis overflow-hidden' title={''+id}>{id+1}</span>
         <span className='text-base capitalize text-gray-800 block text-ellipsis overflow-hidden' title={td.name}>{td.name}</span>
         <span className='text-base capitalize text-gray-800 block text-ellipsis overflow-hidden' title={td.orderId}>{td.orderId}</span>
@@ -31,7 +31,7 @@ const PartnerTablePage = (): JSX.Element => {
         <div className="">
           <Link href={''}><Button onClick={e=> {}} value='Add New Table' classname='max-w-fit px-6 rounded-full' /></Link>
           <div className='mt-8 flex flex-col gap-2'>
-            <Table head={partnerHead} body={formattedBody} columnClass='grid-cols-[50px_auto_120px_220px_70px_70px_130px]' />
+            <Table head={partnerHead} body={formattedBody} columnClass='grid-cols-[50px_minmax(140px,auto)_120px_220px_70px_70px_130px]' />
           </div>
         </div>
       </div>
