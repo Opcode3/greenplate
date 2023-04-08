@@ -37,7 +37,7 @@ const DashboardPage = () => {
     </div>)
 })
   return (
-    <AdminLayout activePage={0}>
+    <AdminLayout activePage={3}>
         <div>
           <PageHeader title='Complaints List' />
           <Table head={usersHead} body={formattedBody} columnClass=' grid-cols-[50px_150px_80px_280px_300px_100px_150px] '  />

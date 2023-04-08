@@ -24,7 +24,8 @@ const PartnerLayout = ({children, activePage, title}: PartnerLayoutProps) => {
         </Link>
 
         <Head>
-          <title>{ title!== '' ? title+" - " : ''}GreenPlate RRS</title>
+          <title>GreenPlate RRS</title>
+          {/* <title>{ title!== '' ? title+" - " : ''}GreenPlate RRS</title> */}
         </Head>
 
         <ul>

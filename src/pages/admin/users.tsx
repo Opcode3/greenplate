@@ -24,7 +24,7 @@ const DashboardPage = () => {
     </div>)
 })
   return (
-    <AdminLayout activePage={0}>
+    <AdminLayout activePage={2}>
         <div>
           <PageHeader title='Customers List' />
           <Table head={usersHead} body={formattedBody} columnClass='grid-cols-[50px_120px_230px_300px_130px] xl:grid-cols-[50px_190px_290px_300px_170px]'  />
