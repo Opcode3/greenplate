@@ -16,7 +16,7 @@ const Table = ({head, body, columnClass}: TableProps) => {
     <div className='bg-gray-100 rounded-lg overflow-hidden my-4 w-full overflow-x-auto'>
         <div className={`grid ${columnClass} gap-2 bg-gray-100 py-4 px-2`}>
             {
-                head.map(hd => <span className='uppercase block font-semibold'>{hd}</span>)
+                head.map((hd, index) => <span key={index} className='uppercase block font-semibold'>{hd}</span>)
             }
         </div>
         <div className={` bg-white min-w-fit w-full`}>
