@@ -16,6 +16,8 @@ const PartnerSignupPage = () => {
     {type: 'Bar palour Restaurant', value: 'bar'},
     {type: 'Pizza and Fries Restaurant', value: 'pizza'},
   ]
+
+  
   return (
     <div className=' flex h-screen flex-col mt-0 justify-start w-full'>
         {/* <Header /> */}
