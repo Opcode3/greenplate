@@ -3,12 +3,13 @@ import React, { ButtonHTMLAttributes, DetailedHTMLProps } from 'react'
 type ButtonProps = {
     value: string,
     classname?: string
-    onClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
+    onClick: (event?: React.MouseEvent<HTMLButtonElement>) => void,
     // status: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement, HTMLButtonElement>>
 }
-const Button = ({value, classname}: ButtonProps) : JSX.Element => {
+const Button = ({value, classname, onClick}: ButtonProps) : JSX.Element => {
   return (
     <button 
+      onClick={onClick}
       className={`cursor-pointer w-full font-semibold py-3 transition-all hover:bg-black rounded-md text-white bg-gray-800 ${classname}`}>
         {value}</button>
   )

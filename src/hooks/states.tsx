@@ -4,7 +4,7 @@ export interface APP_STATES_TYPE {
 }
 
 export enum MODAL_COMPONENT{
-    LOGIN, REGISTER, EMPTY
+    LOGIN, REGISTER, EMPTY, CREATE_TABLE, CREATE_MEAL
 }
 
 export const initialState: APP_STATES_TYPE = {
