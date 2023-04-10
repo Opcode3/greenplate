@@ -17,6 +17,7 @@ const Restaurant = ({data} : RestaurantProps) => {
       <div className=" w-full h-48 relative"><Image fill src={img} style={{ objectFit: 'cover', objectPosition: '50% 50%'}} alt=''/></div>
       <div className="border border-t-0 px-3 py-3">
         <h3 className='font-semibold text-lg'>{data.name}</h3>
+        <p>Lorem, ipsum dolor sit amet cons ectetur adip isicing elit cons tur quae perfe rendis.</p>
       </div>
     </Link>
   )

@@ -35,7 +35,7 @@ const PartnerMealPage = (): JSX.Element => {
                 <InputWithLabel label='Business account name' onChange={e => {}} />
                 <InputWithLabel label='Business account number' onChange={e => {}} />
                 <InputWithLabel label='Business bank' onChange={e => {}} />
-                <Button onClick={e => {}} value='Update Business Settings' classname='mt-6' />
+                <Button onClick={e => {}} value='Update Account Settings' classname='mt-6' />
               </form>
             </div>
           </div>

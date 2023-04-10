@@ -16,7 +16,7 @@ const InputWithLabel = ({placeholder, value, onChange, required, label, type}: I
         <label htmlFor={label} className='text-r-black font-semibold text-base mb-2 lg:text-xl'>{label}</label>
         <input 
           onChange={ e => onChange(e.target.value)}
-          className='border border-gray-400 focus:border-r-black bg-transparent focus:bg-white font-light text-base rounded py-3 px-4 outline-none transition-all'
+          className='border border-gray-400 focus:border-r-black bg-transparent focus:bg-white font-light text-base rounded py-3 px-3 outline-none transition-all'
           placeholder={placeholder} required={required} value={value} id={label} type={type} />
     </div>
   )

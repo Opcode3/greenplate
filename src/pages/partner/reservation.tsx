@@ -5,7 +5,6 @@ import PartnerLayout from '@/layout/partnerLayout'
 import React from 'react'
 import Link from 'next/link'
 import ViewIcon from '@/components/icons/viewIcon'
-import DeleteIcon from '@/components/icons/deleteIcon'
 
 const PartnerOrderPage = (): JSX.Element => {
 
