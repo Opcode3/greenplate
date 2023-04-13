@@ -11,6 +11,7 @@ import { MODAL_COMPONENT } from '@/hooks/states'
 import { REDUCER_ACTION } from '@/hooks/actions'
 import ModalLayout from '@/layout/modalLayout'
 import InputWithLabel from '@/components/inputs/inputWithLabel'
+import TextAreaWithLabel from '@/components/inputs/TextAreaWithLabel'
 
 
 const PartnerMealPage = (): JSX.Element => {
@@ -61,6 +62,9 @@ const newMealHandler = (e: FormEvent) => {
           <h2 className='text-5xl text-r-black mb-8'>New Meal Form</h2>
           <form onSubmit={e => newMealHandler(e)} className='flex flex-col gap-4'>
             <InputWithLabel label='Name' onChange={value => {}} />
+            <InputWithLabel label='Price' type='number' onChange={value => {}} />
+            <InputWithLabel label='Price' type='file' onChange={value => {}} />
+            <TextAreaWithLabel label='Description' rows={3} onChange={value => {}} />
             <Button value='Add Meal' onClick={() => {}} />
           </form>
         </div>

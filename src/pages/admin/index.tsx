@@ -4,14 +4,15 @@ import PageHeader from '@/components/admins/header'
 import Statistic from '@/components/partner/statistic'
 import React from 'react'
 import Table from '@/components/admins/table'
+import ViewIcon from '@/components/icons/viewIcon'
 
 
 const DashboardPage = () => {
   const statisticsData = [
-    {name: 'Total Reservation', value: 2},
-    {name: 'Available Meals', value: 2649},
-    {name: 'Available Table', value: 92},
-    {name: 'Complaints', value: 0},
+    {name: 'Total Restaurants', value: 24},
+    {name: 'Total Customers', value: 269},
+    {name: 'Total Table Reserved', value: 9842},
+    {name: 'Complaints', value: 2},
   ];
 
 
@@ -34,13 +35,13 @@ const DashboardPage = () => {
   return (
     <AdminLayout activePage={0} >
       <div className="">
-        <PageHeader title='Restaurants List' />
+        <PageHeader title='Dashboard' />
         <div className="">
           <Statistic data={statisticsData}/>
-          <div className='mt-8 flex flex-col gap-2'>
+          {/* <div className='mt-8 flex flex-col gap-2'>
             <h3 className='text-2xl font-semibold text-r-black'>Newest Orders</h3>
             <Table head={partnerHead} body={formattedBody} columnClass='grid-cols-[50px_minmax(170px,auto)_200px_70px_70px_60px]' />
-          </div>
+          </div> */}
         </div>
       </div>
     </AdminLayout>

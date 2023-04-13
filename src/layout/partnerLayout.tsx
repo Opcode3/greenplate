@@ -15,7 +15,7 @@ const PartnerLayout = ({children, activePage, title}: PartnerLayoutProps) => {
   return (
     <div className='w-full h-screen grid grid-cols-[270px_auto]  bg-white'>
       <aside className='bg-r-black hidden lg:block'>
-        <Link href={'/admin'} className="flex items-center pt-14 pb-3 px-4">
+        <Link href={'/partner'} className="flex items-center pt-14 pb-3 px-4">
           <div className="grid mr-1 h-20 w-20 relative"> 
             <Image fill style={{objectFit: 'contain', objectPosition: '50% 50%'}} src={logo} alt=''/> 
           </div>

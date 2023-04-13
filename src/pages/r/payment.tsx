@@ -1,11 +1,6 @@
 
 import Layout from "@/layout/layout";
 import Image from "next/image";
-import bg from '/public/images/restaurant/bg-1.jpg'
-import SelectWithLabel from "@/components/inputs/selectWithLabel";
-import InputWithLabel from "@/components/inputs/inputWithLabel";
-import Button from "@/components/buttons/button";
-import FoodItem from "@/components/home/foodItem";
 import Link from "next/link";
 
 export default function PaymentPage() {
@@ -26,8 +21,8 @@ export default function PaymentPage() {
                   </div>
                 </div>
                 <div className=" flex flex-col gap-3 items-center justify-center">
-                  <p className="w-[440px] mx-auto text-center">
-                    To reserve this table, you will be required to make part payment(<em>₦ 700</em>) to the reserved this meal.
+                  <p className="w-[500px] mx-auto text-center">
+                    To reserve this table, you will be required to make part payment of <em>₦ 700</em>.
                   </p>
                   <Link href={''} className="border bg-green-500 transition hover:bg-green-600 max-w-fit rounded py-2 pt-3 px-4">Make payment using <b>paystack</b> .</Link>
                 </div>

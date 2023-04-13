@@ -1,7 +1,9 @@
 
 import PageHeader from '@/components/admins/header'
 import Table from '@/components/admins/table'
+import Button from '@/components/buttons/button'
 import AdminLayout from '@/layout/adminLayout'
+import Link from 'next/link'
 import React from 'react'
 
 const DashboardPage = () => {
@@ -38,9 +40,17 @@ const DashboardPage = () => {
 })
   return (
     <AdminLayout activePage={3}>
-        <div>
           <PageHeader title='Complaints List' />
-          <Table head={usersHead} body={formattedBody} columnClass=' grid-cols-[50px_150px_80px_280px_300px_100px_150px] '  />
+          <div className="">
+          <div className=" flex gap-0">
+            
+            <Link href={''}><Button onClick={() => {}} value='Newest Complain' classname='max-w-fit px-6 rounded-l-full' /></Link>
+            <Link href={''}><Button onClick={() => {}} value='Resolved Complain' classname='max-w-fit px-6 rounded-r-full'/></Link>
+          </div>
+          <div className='mt-8 flex flex-col gap-2'>
+            <span>No data & implementation found for this routine.</span>
+          {/* <Table head={usersHead} body={formattedBody} columnClass=' grid-cols-[50px_150px_80px_280px_300px_100px_150px] '  /> */}
+          </div>
         </div>
     </AdminLayout>
   )
