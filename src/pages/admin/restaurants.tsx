@@ -11,18 +11,6 @@ const DashboardPage = () => {
       id: '9023', name: 'KFC Restaurant', bgUrl:'', location: 'Nil', description: '', createdAt:'10/10/2010',
       rating: 2, googleMapUrl: '', contact: '09093884994, 08984894883, 039839494', email: 'kfcResturant@greenplate.com',
     },
-    {
-      id: '9023', name: 'KFC Restaurant', bgUrl:'', location: 'Nil', description: '', createdAt:'10/10/2010',
-      rating: 2, googleMapUrl: '', contact: '09093884994, 08984894883, 039839494', email: 'kfcResturant@greenplate.com',
-    },
-    {
-      id: '9023', name: 'KFC Restaurant', bgUrl:'', location: 'Nil', description: '', createdAt:'10/10/2010',
-      rating: 2, googleMapUrl: '', contact: '09093884994, 08984894883, 039839494', email: 'kfcResturant@greenplate.com',
-    },
-    {
-      id: '9023', name: 'KFC Restaurant', bgUrl:'', location: 'Nil', description: '', createdAt:'10/10/2010',
-      rating: 2, googleMapUrl: '', contact: '09093884994, 08984894883, 039839494', email: 'kfcResturant@greenplate.com',
-    },
   ]
 
   const formattedBody = usersBody.map((td,id) => {
