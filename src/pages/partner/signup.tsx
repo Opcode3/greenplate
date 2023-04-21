@@ -4,10 +4,18 @@ import logo from "/public/images/logo.svg"
 import InputWithLabel from '@/components/inputs/inputWithLabel'
 import Button from '@/components/buttons/button'
 import Link from 'next/link'
-import Header from '@/components/baselayout/header'
 import Head from 'next/head'
 import SelectWithLabel from '@/components/inputs/selectWithLabel'
 import { Roles } from '@/utils/roles'
+
+import {app} from '@/configs/firebaseConfig'
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+
+
+
+const auth = getAuth(app);
+
+
 
 const PartnerSignupPage = () => {
 
@@ -36,6 +44,30 @@ const PartnerSignupPage = () => {
     }
 
     console.log(newUserInfo);
+
+    // createUserWithEmailAndPassword(auth, email, password)
+    //         .then((userCredential) => {
+    //         // Signed in 
+    //         const user = userCredential.user;
+
+    //         if(userCredential){
+    //             updateProfile(userCredential.user, {
+    //                 displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+    //               }).then(() => {
+    //                 // Profile updated!
+    //                 // ...
+    //               }).catch((error) => {
+    //                 // An error occurred
+    //                 // ...
+    //               });
+    //         }
+    //         // ...
+    //     })
+    //     .catch((error) => {
+    //         const errorCode = error.code;
+    //         const errorMessage = error.message;
+    //         // ..
+    //     });
   }
 
   
