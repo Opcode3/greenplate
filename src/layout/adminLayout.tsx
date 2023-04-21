@@ -3,12 +3,30 @@ import React from 'react'
 import Image from 'next/image'
 import logo from "/public/images/logo.svg"
 import Head from 'next/head'
+import Preloader from '@/components/preloader'
+import Storage from '@/utils/storage'
+import { useRouter } from 'next/router'
 
 type AdminLayoutProps = {
     children: React.ReactNode,
     activePage?: number,
 }
+
+const storage = new Storage();
 const AdminLayout = ({children, activePage}: AdminLayoutProps) => {
+  const router = useRouter()
+  const [isLoading, setIsLoading] = React.useState<boolean>(true)
+  const isIntact = storage.get('token') && storage.get('role') === 'admin'
+  React.useEffect(() => {
+    if(!isIntact){
+      router.push('/admin/login')
+    }else{
+      console.log( storage.get('userDetail'))
+      setIsLoading(false)
+    }
+  }, [isIntact, router])
+  if(isLoading) return <Preloader />
+
   return (
     <div className='w-full h-screen grid grid-cols-[270px_auto]  bg-white'>
       <aside className='bg-r-black hidden lg:block'>

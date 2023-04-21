@@ -3,14 +3,33 @@ import React from 'react'
 import Image from 'next/image'
 import logo from "/public/images/logo.svg"
 import Head from 'next/head'
+import Preloader from '@/components/preloader'
+import Storage from '@/utils/storage'
+import { useRouter } from 'next/router'
 
 type PartnerLayoutProps = {
     children: React.ReactNode,
     activePage?: number,
     title?: string
 }
-const PartnerLayout = ({children, activePage, title}: PartnerLayoutProps) => {
 
+const storage = new Storage()
+const PartnerLayout = ({children, activePage, title}: PartnerLayoutProps) => {
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const router = useRouter();
+  const isIntact = storage.get('token') && storage.get('role') === 'partner';
+  React.useEffect(() => {
+    if(!isIntact){
+      router.push('/partner/signin')
+    }else{
+      console.log(
+        storage.get('userDetail')
+      )
+      setIsLoading(false)
+    }
+  }, [isIntact, router])
+
+  if(isLoading) return <Preloader />
 
   return (
     <div className='w-full h-screen grid grid-cols-[270px_auto]  bg-white'>
