@@ -8,8 +8,8 @@ import Head from 'next/head'
 import SelectWithLabel from '@/components/inputs/selectWithLabel'
 import { Roles } from '@/utils/roles'
 import { toast } from 'react-toastify'
-import { register } from '@/services/index'
 import { useRouter } from 'next/router'
+import { register } from '@/services'
 
 const PartnerSignupPage = () => {
 
@@ -30,26 +30,27 @@ const PartnerSignupPage = () => {
   const [cuisine, setCuisine] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const [isReg, setIsReg]  = useState<boolean>(false)
+
 
   const registerHandler = (e: FormEvent) => {
     e.preventDefault();
+    setIsReg(true);
 
     const newUserInfo = {
-      businessName, fullname, address, cuisine, role: Roles.PARTNER,
+      businessName, fullname, address, cuisine, role: Roles.PARTNER, email
     }
 
     register(email, password, newUserInfo)
-      .then(res => {
+      .then((res) => {
         toast.success('Registration was successful. Redirecting you to login page!')
-        console.log(res)
         setTimeout(() => {
+          setIsReg(false)
           router.push('/partner/signin');
         }, 2500)
-      }).catch(error => {
-        toast.error('Ooooop! An error was encountered while trying to register partner.')
-      })
-  }
+      }).catch(err => { toast.error("Ooooop! An error was encountered while trying to register partner.")})
 
+  }
   
   return (
     <div className=' flex h-screen flex-col mt-0 justify-start w-full'>
@@ -76,7 +77,7 @@ const PartnerSignupPage = () => {
                       <p>By checking this box, you are agreeing to the <Link href={''} className='font-medium text-green-600 underline'>terms and condition</Link> of this platform.</p>
                     </label>
                 </div>
-                <Button value='Create business account' classname='text-2xl mt-7' onClick={e => {}} />
+                <Button status={isReg} value='Create business account' classname='text-2xl mt-7' onClick={e => {}} />
                 <Link href={'/partner/signin'} className='font-medium text-xl mt-4 mb-10 text-green-600 block text-center'>Already have a partner account?</Link>
             </form>
             

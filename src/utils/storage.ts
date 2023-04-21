@@ -1,11 +1,11 @@
-import { hasCookie, setCookies, getCookie, deleteCookie } from "cookies-next";
+import { hasCookie, setCookie, getCookie, deleteCookie } from "cookies-next";
 import type { CookieValueTypes } from "cookies-next";
 
 const WEEK_IN_SECONDS = 604800;
 
 export default class Storage {
   set(key: string, value: CookieValueTypes) {
-    return setCookies(key, value, {
+    return setCookie(key, value, {
       maxAge: WEEK_IN_SECONDS,
     });
   }

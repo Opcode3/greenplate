@@ -1,35 +1,8 @@
 import {database, storage} from '@/configs/firebaseConfig'
-import { collection, addDoc, updateDoc, deleteDoc, getDoc} from "firebase/firestore"; 
+import { collection, addDoc, setDoc, doc, updateDoc, deleteDoc, query, where, getDoc, getDocs} from "firebase/firestore"; 
 import {ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
-
-export async function login (email, password){
-    
-}
-
-export async function createUser(data){
-    
-}
-
-
-// import { collection, query, where, getDocs } from "firebase/firestore";
-
 // const q = query(collection(db, "cities"), where("capital", "==", true));
-
-// const querySnapshot = await getDocs(q);
-// querySnapshot.forEach((doc) => {
-//   // doc.data() is never undefined for query doc snapshots
-//   console.log(doc.id, " => ", doc.data());
-// });
-
-
-// import { collection, getDocs } from "firebase/firestore";
-
-// const querySnapshot = await getDocs(collection(db, "cities"));
-// querySnapshot.forEach((doc) => {
-//   // doc.data() is never undefined for query doc snapshots
-//   console.log(doc.id, " => ", doc.data());
-// });
 
 
 const addData = async (table_name, data) => {
@@ -37,6 +10,16 @@ const addData = async (table_name, data) => {
         const docRef = await addDoc(collection(database, table_name), data);
         console.log("Document written with ID: ", docRef.id);
         console.log(docRef);
+        return true;
+    } catch (e) {
+        console.error("Error adding document: ", e);
+        return false;
+    }
+}
+
+const setData = async (table_name, key, data) => {
+    try {
+        const docRef = await setDoc(doc(database, table_name, key), data);
         return true;
     } catch (e) {
         console.error("Error adding document: ", e);
@@ -54,7 +37,7 @@ const deleteData = async (table_name, delete_key) => {
     }
 }
 
-const getData = async (table_name, get_key,) => {
+const getData = async (table_name, get_key) => {
     try {
         const docSnap = await getDoc(doc(database, table_name, get_key));
         if(docSnap.exists()){
@@ -68,6 +51,27 @@ const getData = async (table_name, get_key,) => {
         console.error("Error adding document: ", e);
         return e.message;
     }
+}
+
+const getAllData = async (table_name, query = null) => {
+    try {
+
+        const docSnapshot = await getDocs( (query !== null) ? query : collection(database, table_name));
+        
+        if(docSnapshot.exists()){
+            console.log("Document data:", docSnapshot.data());
+            console.log("docSnapshot");
+            console.log(docSnapshot);
+            return docSnapshot.data();
+        }else{
+            console.log("No such document!");
+            return 'No such document exist'
+        }
+    } catch (e) {
+        console.error("Error adding document: ", e);
+        return e.message;
+    }
+
 }
 
 const updateData = async (table_name, update_key, data) => {
@@ -101,5 +105,17 @@ const uploadImage = async (file) => {
             });
           }
     )
+}
+
+
+export async function loginDB (userCredential, uid){
+    const userInfo = await getData('users_tb', uid);
+    userCredential.userDetail = userInfo;
+    return userCredential;
+}
+
+export async function createUserDB(data, id){
+    const processingData = await setData('users_tb', id, data);
+    return processingData;
 }
 

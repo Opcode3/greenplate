@@ -18,26 +18,29 @@ const PartnerSigninPage = () => {
     const router = useRouter()
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const [isLogIn, setIsLogin] = useState<boolean>(false);
 
     const loginHandler = (e: FormEvent) => {
         e.preventDefault()
+        setIsLogin(true);
         login(email, password)
             .then(res => {
                 console.log(res)
-                storage.set('token', res.user.accessToken)
-                storage.set('role', res.user.displayName);
-                storage.set('userDetail', JSON.stringify({email: res.email}));
-                toast.success('Login was successful! Redirecting to dashboard...')
-                setTimeout(() => {
-                    router.push('/partner');
-                }, 2500)
+                if( res && res.user && res.user.displayName === 'PARTNER'){
+                    storage.set('token', res.user.accessToken)
+                    storage.set('role', res.user.displayName);
+                    storage.set('userDetail', JSON.stringify(res.userDetail));
+                    toast.success('Login was successful! Redirecting to dashboard...')
+                    setTimeout(() => {
+                        setIsLogin(false)
+                        router.push('/partner');
+                    }, 2500)
+                }else{
+                    toast.info('This login credentials is not associated to a partner..')
+                }
             }).catch( error => {
-                toast.error('Unable to identify user email or password!')
-                console.error('Unable to identify user email or password!')
-                console.error(error.code)
-                console.error(error.message)
+                toast.error('Unable to identify user email or password!', error)
             })
-
     }
   return (
     <div className=' flex h-screen flex-col mt-0 justify-start w-full'>
@@ -58,7 +61,7 @@ const PartnerSigninPage = () => {
                     <Link href={''} className='font-medium lg:text-xl'>Forgot Password</Link>
                     <Link href={''} className='font-medium lg:text-xl'>Privacy Policy</Link>
                 </div>
-                <Button value='Login' classname='text-2xl mt-7' onClick={e => {}} />
+                <Button status={isLogIn} value='Login' classname='text-2xl mt-7' onClick={e => {}} />
                 <Link href={'/partner/signup'} className='font-medium text-xl mt-10 text-green-600 block text-center'>Become a restaurant partner?</Link>
             </form>
             
