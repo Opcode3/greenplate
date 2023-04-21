@@ -5,9 +5,6 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmail
 
 const auth = getAuth(app);
 
-
-
-
 export async function login (email, password){
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -26,3 +23,4 @@ export async function register(email, password, otherInformaton){
         return false;
     }
 }
+
