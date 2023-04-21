@@ -7,15 +7,36 @@ import Link from 'next/link'
 import Header from '@/components/baselayout/header'
 import Head from 'next/head'
 
-const PartnerSigninPage = () => {
+import { login } from '@/services/index'
+import Storage from '@/utils/storage'
+import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 
+
+const storage = new Storage()
+const PartnerSigninPage = () => {
+    const router = useRouter()
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 
     const loginHandler = (e: FormEvent) => {
         e.preventDefault()
-        const userCredential = { email, password}
-        console.log(userCredential)
+        login(email, password)
+            .then(res => {
+                console.log(res)
+                storage.set('token', res.user.accessToken)
+                storage.set('role', res.user.displayName);
+                storage.set('userDetail', JSON.stringify({email: res.email}));
+                toast.success('Login was successful! Redirecting to dashboard...')
+                setTimeout(() => {
+                    router.push('/partner');
+                }, 2500)
+            }).catch( error => {
+                toast.error('Unable to identify user email or password!')
+                console.error('Unable to identify user email or password!')
+                console.error(error.code)
+                console.error(error.message)
+            })
 
     }
   return (

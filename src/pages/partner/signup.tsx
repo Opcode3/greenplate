@@ -7,17 +7,13 @@ import Link from 'next/link'
 import Head from 'next/head'
 import SelectWithLabel from '@/components/inputs/selectWithLabel'
 import { Roles } from '@/utils/roles'
-
-import {app} from '@/configs/firebaseConfig'
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-
-
-
-const auth = getAuth(app);
-
-
+import { toast } from 'react-toastify'
+import { register } from '@/services/index'
+import { useRouter } from 'next/router'
 
 const PartnerSignupPage = () => {
+
+  const router = useRouter();
 
   const cuisineTypes: {type: string, value: string}[] = [
     {type: 'Select your cuisine type', value: ''},
@@ -39,35 +35,19 @@ const PartnerSignupPage = () => {
     e.preventDefault();
 
     const newUserInfo = {
-      businessName, fullname, email, address, cuisine, password,
-      role: Roles.PARTNER,
+      businessName, fullname, address, cuisine, role: Roles.PARTNER,
     }
 
-    console.log(newUserInfo);
-
-    // createUserWithEmailAndPassword(auth, email, password)
-    //         .then((userCredential) => {
-    //         // Signed in 
-    //         const user = userCredential.user;
-
-    //         if(userCredential){
-    //             updateProfile(userCredential.user, {
-    //                 displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
-    //               }).then(() => {
-    //                 // Profile updated!
-    //                 // ...
-    //               }).catch((error) => {
-    //                 // An error occurred
-    //                 // ...
-    //               });
-    //         }
-    //         // ...
-    //     })
-    //     .catch((error) => {
-    //         const errorCode = error.code;
-    //         const errorMessage = error.message;
-    //         // ..
-    //     });
+    register(email, password, newUserInfo)
+      .then(res => {
+        toast.success('Registration was successful. Redirecting you to login page!')
+        console.log(res)
+        setTimeout(() => {
+          router.push('/partner/signin');
+        }, 2500)
+      }).catch(error => {
+        toast.error('Ooooop! An error was encountered while trying to register partner.')
+      })
   }
 
   

@@ -1,3 +1,3 @@
 export enum Roles {
-    ADMIN, CUSTOMER, PARTNER
+    ADMIN = 'ADMIN', CUSTOMER = 'CUSTOMER', PARTNER = 'PARTNER'
 }

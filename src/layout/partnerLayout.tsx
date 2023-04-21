@@ -17,7 +17,7 @@ const storage = new Storage()
 const PartnerLayout = ({children, activePage, title}: PartnerLayoutProps) => {
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const router = useRouter();
-  const isIntact = storage.get('token') && storage.get('role') === 'partner';
+  const isIntact = storage.get('token') && storage.get('role') === 'PARTNER';
   React.useEffect(() => {
     if(!isIntact){
       router.push('/partner/signin')
