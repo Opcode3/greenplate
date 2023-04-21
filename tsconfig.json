@@ -19,7 +19,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/index.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/index.js", "src/configs/firebaseConfig.js"],
   "exclude": ["node_modules"]
 }
 
