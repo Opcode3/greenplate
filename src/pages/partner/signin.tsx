@@ -32,7 +32,6 @@ const PartnerSigninPage = () => {
                     storage.set('userDetail', JSON.stringify(res.userDetail));
                     toast.success('Login was successful! Redirecting to dashboard...')
                     setTimeout(() => {
-                        setIsLogin(false)
                         router.push('/partner');
                     }, 2500)
                 }else{
@@ -40,11 +39,12 @@ const PartnerSigninPage = () => {
                 }
             }).catch( error => {
                 toast.error('Unable to identify user email or password!', error)
+            }).finally(() => {
+                setIsLogin(false)
             })
     }
   return (
     <div className=' flex h-screen flex-col mt-0 justify-start w-full'>
-        {/* <Header /> */}
         <Head>
             <title>Login - GreenPlate Business</title>
         </Head>

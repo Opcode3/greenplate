@@ -54,7 +54,6 @@ const PartnerSignupPage = () => {
   
   return (
     <div className=' flex h-screen flex-col mt-0 justify-start w-full'>
-        {/* <Header /> */}
         <Head>
             <title>Register - GreenPlate Business</title>
         </Head>

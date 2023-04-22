@@ -41,10 +41,10 @@ const getData = async (table_name, get_key) => {
     try {
         const docSnap = await getDoc(doc(database, table_name, get_key));
         if(docSnap.exists()){
-            // console.log("Document data:", docSnap.data());
+            console.log("Document data:", docSnap.data());
             return docSnap.data();
         }else{
-            // console.log("No such document!");
+            console.log("No such document!");
             return 'No such document exist'
         }
     } catch (e) {
@@ -59,10 +59,12 @@ const getAllData = async (table_name, query = null) => {
         const docSnapshot = await getDocs( (query !== null) ? query : collection(database, table_name));
         
         if(docSnapshot.exists()){
-            // console.log("Document data:", docSnapshot.data());
+            console.log("Document data:", docSnapshot.data());
+            console.log("docSnapshot");
+            console.log(docSnapshot);
             return docSnapshot.data();
         }else{
-            // console.log("No such document!");
+            console.log("No such document!");
             return 'No such document exist'
         }
     } catch (e) {
@@ -106,14 +108,21 @@ const uploadImage = async (file) => {
 }
 
 
-export async function loginDB (userCredential, uid){
-    const userInfo = await getData('users_tb', uid);
-    userCredential.userDetail = userInfo;
-    return userCredential;
+export async function loginDB (password, email){
+    const userInfo = await getData('users_tb', email);
+    console.log('User Info')
+    console.log(userInfo);
+    if(userInfo.password === password){
+        return userInfo;
+    }else{
+        return false;
+    }
 }
 
-export async function createUserDB(data, id){
-    const processingData = await setData('users_tb', id, data);
+export async function createUserDB(data, email){
+    // const processingData = await setData('users_tb', email, data);
+    console.log(data, email)
+    return data;
     return processingData;
 }
 

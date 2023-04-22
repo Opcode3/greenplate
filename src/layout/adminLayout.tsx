@@ -16,7 +16,7 @@ const storage = new Storage();
 const AdminLayout = ({children, activePage}: AdminLayoutProps) => {
   const router = useRouter()
   const [isLoading, setIsLoading] = React.useState<boolean>(true)
-  const isIntact = storage.get('token') && storage.get('role') === 'admin'
+  const isIntact = storage.get('token') && storage.get('role') === 'ADMIN'
   React.useEffect(() => {
     if(!isIntact){
       router.push('/admin/login')
