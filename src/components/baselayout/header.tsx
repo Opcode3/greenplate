@@ -6,6 +6,7 @@ import logo from "/public/images/logo.svg"
 import { UseStore } from '@/hooks/context'
 import { REDUCER_ACTION } from '@/hooks/actions'
 import { MODAL_COMPONENT } from '@/hooks/states'
+import Storage from '@/utils/storage'
 
 
 type HeaderProps = {
@@ -14,8 +15,11 @@ type HeaderProps = {
 }
 
 
+const storage = new Storage()
+
 const Header = ({title, page}: HeaderProps) => {
 
+  const isIntact = storage.get('token') && storage.get('role') === 'CUSTOMER';
 
   const [mobileMenu, setMobileMenu] = React.useState<boolean>(false)
   
@@ -44,14 +48,24 @@ const Header = ({title, page}: HeaderProps) => {
         <span className='text-2xl font-extrabold text-r-black'>Green</span>
         <span className='text-2xl font-extrabold text-green-400'>Plate</span>
       </Link>
-      <div className="hidden lg:flex w-full justify-end">
-        <span className={`px-4 rounded py-3 text-sm text-r-black cursor-pointer`}
-          onClick={ e => dispatch({type: REDUCER_ACTION.MODAL_VISIBILITY_TOGGLE, payload: MODAL_COMPONENT.LOGIN})}
-          >Sign in</span>
-        <span className={`px-4 rounded py-3 text-sm font-medium bg-r-black cursor-pointer text-white ml-2`}
-          onClick={ e => dispatch({type: REDUCER_ACTION.MODAL_VISIBILITY_TOGGLE, payload: MODAL_COMPONENT.REGISTER})}
-        >Sign up</span>
-      </div>
+      {
+        isIntact ? 
+          <div className="hidden lg:flex w-full justify-end">
+            <Link href={''} 
+              className={`px-4 rounded py-3 text-sm text-r-black cursor-pointer`}>My Reservations</Link>
+            <Link href={'logout'} 
+              className={`px-4 rounded py-3 text-sm font-medium bg-red-600 cursor-pointer text-white ml-2`}>Logout</Link>
+          </div>
+          :
+          <div className="hidden lg:flex w-full justify-end">
+            <span className={`px-4 rounded py-3 text-sm text-r-black cursor-pointer`}
+              onClick={ e => dispatch({type: REDUCER_ACTION.MODAL_VISIBILITY_TOGGLE, payload: MODAL_COMPONENT.LOGIN})}
+              >Sign in</span>
+            <span className={`px-4 rounded py-3 text-sm font-medium bg-r-black cursor-pointer text-white ml-2`}
+              onClick={ e => dispatch({type: REDUCER_ACTION.MODAL_VISIBILITY_TOGGLE, payload: MODAL_COMPONENT.REGISTER})}
+            >Sign up</span>
+          </div>
+      }
     </header>
   
     <Head>

@@ -24,21 +24,22 @@ const LoginAdminPage = () => {
         setIsLogin(true);
         login(email, password)
             .then(res => {
-                console.log('Me na',res)
-                if( res && res.user && res.user.userDetail.role === 'ADMIN'){
+                if( res && res.user && res.user.displayName === 'ADMIN'){
+                    // console.log('We na',res)
+
                     storage.set('token', res.user.accessToken)
                     storage.set('role', res.user.displayName);
                     storage.set('userDetail', JSON.stringify(res.userDetail));
                     toast.success('Login was successful! Redirecting to dashboard...')
                     setTimeout(() => {
-                      console.log('Yes')
                         router.push('/admin');
                     }, 2500)
                 }else{
                     toast.info('This login credentials is not associated to an admin account..')
                 }
             }).catch( error => {
-                toast.error('Unable to identify user email or password!', error)
+                toast.error('Unable to identify user email or password!')
+
             }).finally(() => {
                 setIsLogin(false)
             })
