@@ -63,7 +63,7 @@ const newMealHandler = (e: FormEvent) => {
           <form onSubmit={e => newMealHandler(e)} className='flex flex-col gap-4'>
             <InputWithLabel label='Name' onChange={value => {}} />
             <InputWithLabel label='Price' type='number' onChange={value => {}} />
-            <InputWithLabel label='Price' type='file' onChange={value => {}} />
+            <InputWithLabel label='Image' type='file' onChange={value => {}} />
             <TextAreaWithLabel label='Description' rows={3} onChange={value => {}} />
             <Button value='Add Meal' onClick={() => {}} />
           </form>

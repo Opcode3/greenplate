@@ -7,7 +7,14 @@ export function getFlagEmoji(countryCode) {
 }
 
 
-export function getCountriesCode(){
-  const countries = require('/public/locals/countryPhoneCodes.json');
-  return countries;
+// export function getCountriesCode(){
+//   const countries = require('/public/locals/countryPhoneCodes.json');
+//   return countries;
+// }
+
+
+export function reformFireBaseDates(res){
+  // res.createdAt = res.createdAt.toDate() 
+  // res.updatedAt = res.updatedAt.toDate()
+  return res 
 }

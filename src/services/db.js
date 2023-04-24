@@ -55,16 +55,14 @@ const getData = async (table_name, get_key) => {
 
 const getAllData = async (table_name, query = null) => {
     try {
-
-        const docSnapshot = await getDocs( (query !== null) ? query : collection(database, table_name));
-        
-        if(docSnapshot.exists()){
-            // console.log("Document data:", docSnapshot.data());
-            return docSnapshot.data();
-        }else{
-            // console.log("No such document!");
-            return 'No such document exist'
-        }
+        const snapshotData = [];
+        const mdocs = await getDocs( (query !== null) ? query : collection(database, table_name));
+        mdocs.forEach(doc => {
+            const res = doc.data()
+            res.uid = doc.id
+            snapshotData.push(res)
+        })
+        return snapshotData;
     } catch (e) {
         console.error("Error adding document: ", e);
         return e.message;
@@ -119,7 +117,9 @@ export async function createUserDB(data, id){
 }
 
 export async function createTable(data){
-    data.createdAt = new Date( Date.now() );
+    const current = new Date( Date.now() ).toUTCString();
+    data.createdAt = `${current}`;
+    data.updatedAt = `${current}`;
     const creating = await addData('tables_tb', data)
     return creating;
 }

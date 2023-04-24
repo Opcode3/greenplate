@@ -22,9 +22,9 @@ const PartnerLayout = ({children, activePage, title}: PartnerLayoutProps) => {
     if(!isIntact){
       router.push('/partner/signin')
     }else{
-      console.log(
-        storage.get('userDetail')
-      )
+      // console.log(
+      //   storage.get('userDetail')
+      // )
       setIsLoading(false)
     }
   }, [isIntact, router])
