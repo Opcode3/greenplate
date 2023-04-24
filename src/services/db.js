@@ -113,7 +113,20 @@ export async function loginDB (userCredential, uid){
 }
 
 export async function createUserDB(data, id){
+    data.createdAt = new Date( Date.now() );
     const processingData = await setData('users_tb', id, data);
     return processingData;
+}
+
+export async function createTable(data){
+    data.createdAt = new Date( Date.now() );
+    const creating = await addData('tables_tb', data)
+    return creating;
+}
+
+
+export async function getTables(){
+    const getting = await getAllData('tables_tb')
+    return getting;
 }
 

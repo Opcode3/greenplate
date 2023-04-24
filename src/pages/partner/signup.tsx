@@ -38,7 +38,7 @@ const PartnerSignupPage = () => {
     setIsReg(true);
 
     const newUserInfo = {
-      businessName, fullname, address, cuisine, role: Roles.PARTNER, email
+      businessName, fullname, address, cuisine, role: Roles.PARTNER, email, password
     }
 
     register(email, password, newUserInfo)

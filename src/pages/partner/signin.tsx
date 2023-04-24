@@ -35,10 +35,11 @@ const PartnerSigninPage = () => {
                         router.push('/partner');
                     }, 2500)
                 }else{
-                    toast.info('This login credentials is not associated to a partner..')
+                    // toast.info('This login credentials is not associated to a partner..')
+                    toast.info(res.message)
                 }
             }).catch( error => {
-                toast.error('Unable to identify user email or password!', error)
+                toast.error('Unable to identify user email or password!', error.message)
             }).finally(() => {
                 setIsLogin(false)
             })
